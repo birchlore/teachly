@@ -1,10 +1,9 @@
-
-require 'spec_helper'
+require './spec_helper'
 
 describe Expert do
   
   before :each do 
-    @expert = Expert.new "Matt","Gradidge",12.00,123456, 0, "LHL TA" 
+    @expert = Expert.new(first_name: "Matt", last_name: "Gradidge", hourly_rate: 12.00, rating: 0, skills:  "LHL TA")
   end 
   
   describe '#new' do
@@ -17,28 +16,30 @@ describe Expert do
     it "saves new instance of Expert to db" do
       expect(@expert.save).to be_true
     end
+	end
 
-  describe "has no rate yet" do
+  it "has no rate yet" do
     expect(@expert.rate).to eq(0)
   end
 
-  describe "can only have a max rate of 100%" do
-    @expert.rate = 1.2
+  it "can only have a max rating of 100%" do
+    @expert.rating = 1.2
     expect(@expert.rate).to raise_error
     expect(@expert.rate).to eq(1.0)
   end
 
-  describe  ".name returns first_name and first letter of last_name" do
+  it  ".name returns first_name and first letter of last_name" do
     expect(@expert.name).to eq("Matt G.")
   end    
 
-  describe "password must be 6 characters long" do
+  it "password must be 6 characters long" do
     @expert.password = 1234
     expect(@expert.password).to raise_error "Password must be at least 6 charaters long"
   end
 
-  describe "password entered must match the one stored with the expert" do
+  it "password entered must match the one stored with the expert" do
     @expert.password = 457896
     expect(@expert.password).to be_false
+	end
 
 end

@@ -13,6 +13,8 @@ gem 'tux'
 gem 'pg'
 gem 'carrierwave'
 
+gem 'rspec'
+
 group :development, :test do
   gem 'pry'
   gem 'shotgun'
