@@ -2,6 +2,8 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'active_support/all'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
 
 # Load Sinatra Framework (with AR)
 require 'sinatra'
@@ -18,7 +20,7 @@ configure do
   set :server, :puma
 
   enable :sessions
-  set :session_secret, ENV['SESSION_KEY'] || 'lighthouselabssecret'
+  set :session_secret, ENV['SESSION_KEY'] || 'rockstars_'
 
   set :views, File.join(Sinatra::Application.root, "app", "views")
 end
@@ -28,3 +30,6 @@ require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
 require APP_ROOT.join('app', 'actions')
+
+# Load the Uploader
+require APP_ROOT.join('app','uploader/uploader') 

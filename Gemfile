@@ -10,6 +10,10 @@ gem 'sinatra-activerecord'
 
 gem 'puma'
 gem 'tux'
+gem 'pg'
+gem 'carrierwave'
+
+gem 'rspec'
 
 group :development, :test do
   gem 'pry'

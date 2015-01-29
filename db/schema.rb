@@ -10,11 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321144528) do
+ActiveRecord::Schema.define(version: 20150129233138) do
 
-  create_table "users", force: true do |t|
-    t.string "name"
-    t.string "email"
+  create_table "experts", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.decimal  "hourly_rate"
+    t.decimal  "rating"
+    t.text     "skills"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "avatar"
+    t.text     "bio"
+    t.string   "email"
+    t.string   "password"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "expert_id"
+  end
+
+  add_index "reviews", ["expert_id"], name: "index_reviews_on_expert_id"
+
+  create_table "searches", force: true do |t|
+    t.string   "terms"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
