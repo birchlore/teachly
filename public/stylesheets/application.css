@@ -1,3 +1,13 @@
+h2 {
+  color: #333333;
+  font-family:Helvetica;
+}
+
+h3 {
+  color: #666666;
+  font-family:Helvetica;
+}
+
 .hero {
   background: url("/assets/hero/hero.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -33,6 +43,8 @@
 
 .logo {
   text-align:left;
+  margin-top:20px;
+  float: left;
 }
 
 input[placeholder]{
@@ -65,12 +77,15 @@ input[placeholder]{
     -webkit-filter: grayscale(20%);
 }
 
-h3 {
-  color: #666666;
-  font-family:Helvetica;
+.spacer {
+  margin-top:100px;
 }
 
-.logo {
-  margin-top:20px;
-  float: left;
+
+.name, .wage, .rating {
+  font-size:20px;
+  padding:10px;
+  color:#666666;
 }
+
+
