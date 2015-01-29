@@ -20,10 +20,7 @@ ActiveRecord::Schema.define(version: 20150129203530) do
     t.text     "skills"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.string   "avatar"
   end
 
   create_table "reviews", force: true do |t|

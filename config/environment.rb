@@ -2,7 +2,8 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'active_support/all'
-require 'paperclip'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
 
 # Load Sinatra Framework (with AR)
 require 'sinatra'
@@ -12,7 +13,6 @@ require 'pry'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
-Paperclip.options[:command_path] = ENV['PP_PATH'] 
 
 # Sinatra configuration
 configure do
@@ -30,3 +30,6 @@ require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
 require APP_ROOT.join('app', 'actions')
+
+# Load the Uploader
+require APP_ROOT.join('app','uploader/uploader') 
