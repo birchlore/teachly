@@ -2,8 +2,8 @@ class Expert < ActiveRecord::Base
 	# Allows skills to be stored as an array
 	serialize :skills
 	
-	has_attached_file :avatar, styles: { profile: "200x200>"}
-	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+	mount_uploader :avatar, AvatarUploader
+
 	has_many :reviews
 
 	def name
