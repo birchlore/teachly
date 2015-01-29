@@ -1,7 +1,9 @@
 Teach.ly
 =============
 
-Jackson C, Nikki L, Spiro S
++ Jackson C
++ Nikki L
++ Spiro S
 
 ## Getting Started
 
