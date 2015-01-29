@@ -1,11 +1,8 @@
 class CreateSearches < ActiveRecord::Migration
-  def up
+  def change
 		create_table :searches do |t|
 			t.string :terms
 			t.timestamps	
 		end
   end
-
-	def down
-	end
 end

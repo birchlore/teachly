@@ -4,11 +4,11 @@ require 'spec_helper'
 describe Expert do
   
   before :each do 
-    @expert = Expert.new "Matt","Gradidge",123456, :rate 
+    @expert = Expert.new "Matt","Gradidge",12.00,123456, 0, "LHL TA" 
   end 
   
   describe '#new' do
-    it "takes in two parameters and returns a Expert object" do
+    it "takes in 5 parameters and returns a Expert object" do
       @expert.should be_an_instance_of Expert
     end
   end 
@@ -29,7 +29,7 @@ describe Expert do
   end
 
   describe  ".name returns first_name and first letter of last_name" do
-    expect(@expert.name).to eq("Matt G")
+    expect(@expert.name).to eq("Matt G.")
   end    
 
   describe "password must be 6 characters long" do

@@ -1,5 +1,5 @@
 class CreateExpert < ActiveRecord::Migration
-  def up
+  def change
 		create_table :experts do |t|
 			t.string 	:first_name
 			t.string 	:last_name
@@ -10,7 +10,5 @@ class CreateExpert < ActiveRecord::Migration
 		end
   end
 
-	def down
-		drop_table :experts
-	end
+	
 end
