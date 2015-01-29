@@ -3,6 +3,15 @@ get '/' do
   erb :index
 end
 
-get '/user/expert/' do
-  erb :results
+post '/search' do
+  erb :search_results
 end
+
+get '/dashboard' do
+  erb :dashboard
+end
+
+get '/expert/:id' do
+  erb :public_profile
+end
+
