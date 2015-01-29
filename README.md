@@ -1,4 +1,4 @@
-Teach.ly
+Teachinator!
 =============
 
 1. Jackson C
