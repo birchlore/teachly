@@ -1,10 +1,10 @@
 class Expert < ActiveRecord::Base
+	has_many :reviews
 	# Allows skills to be stored as an array
 	serialize :skills
 	
 	mount_uploader :avatar, AvatarUploader
 
-	has_many :reviews
 
 	def name
 		return nil unless has_full_name?

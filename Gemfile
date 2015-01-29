@@ -11,12 +11,11 @@ gem 'sinatra-activerecord'
 gem 'puma'
 gem 'tux'
 gem 'pg'
-gem 'carrierwave'
-
-gem 'rspec'
+gem 'paperclip', '>=3'
 
 group :development, :test do
   gem 'pry'
+  gem 'rspec'
   gem 'shotgun'
   gem 'sqlite3'
 end

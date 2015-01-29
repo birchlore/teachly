@@ -21,19 +21,22 @@ GEM
     backports (3.4.0)
     bond (0.4.3)
     builder (3.1.4)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.5)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     diff-lcs (1.2.5)
     i18n (0.6.9)
-    json (1.8.2)
     method_source (0.8.2)
     mime-types (2.4.3)
     minitest (4.7.5)
     multi_json (1.9.2)
+    paperclip (4.2.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pg (0.18.1)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -100,7 +103,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  carrierwave
+  paperclip (>= 3)
   pg
   pry
   puma

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require './spec_helper'
 
 describe Review  do
 
@@ -20,5 +20,4 @@ describe Review  do
     end
   end
   
-  end
 end
