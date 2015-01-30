@@ -72,20 +72,18 @@
 
     <div class="row col-sm-12">
     <h1>Reviews</h1>
-      <div class="review">
-        <h3>Spiro S. <img src="/assets/icons/happy.png"></h3>
-         <p> meggings cray pour-over slow-carb beard Godard kitsch Vice. Intelligentsia salvia tattooed lomo drinking vinegar before they sold out squid Vice. Retro Williamsburg gluten-free, chambray keffiyeh organic messenger bag wolf lumbersexual sustainable you probably haven't heard of them squid. Mustache +1 chillwave, chia paleo pickled photo booth mlkshk heirloom gluten-free. Plaid health goth vegan, fingerstache tote bag actually aesthetic.</p>
-      </div>
-      <div class="review">
-        <h3>Spiro S. <img src="/assets/icons/happy.png"></h3>
-         <p> meggings cray pour-over slow-carb beard Godard kitsch Vice. Intelligentsia salvia tattooed lomo drinking vinegar before they sold out squid Vice. Retro Williamsburg gluten-free, chambray keffiyeh organic messenger bag wolf lumbersexual sustainable you probably haven't heard of them squid. Mustache +1 chillwave, chia paleo pickled photo booth mlkshk heirloom gluten-free. Plaid health goth vegan, fingerstache tote bag actually aesthetic.</p>
-      </div>
-      <div class="review">
-        <h3>Spiro S. <img src="/assets/icons/happy.png"></h3>
-         <p> meggings cray pour-over slow-carb beard Godard kitsch Vice. Intelligentsia salvia tattooed lomo drinking vinegar before they sold out squid Vice. Retro Williamsburg gluten-free, chambray keffiyeh organic messenger bag wolf lumbersexual sustainable you probably haven't heard of them squid. Mustache +1 chillwave, chia paleo pickled photo booth mlkshk heirloom gluten-free. Plaid health goth vegan, fingerstache tote bag actually aesthetic.</p>
-      </div>
+      <% @expert.reviews.each do |review| %>
+        <div class="review">
+          <h3>
+          <% if review.rating == 1 %>
+            <img src="/assets/icons/happy.png"></h3>
+          <% else %>
+          
+           <p> meggings cray pour-over slow-carb beard Godard kitsch Vice. Intelligentsia salvia tattooed lomo drinking vinegar before they sold out squid Vice. Retro Williamsburg gluten-free, chambray keffiyeh organic messenger bag wolf lumbersexual sustainable you probably haven't heard of them squid. Mustache +1 chillwave, chia paleo pickled photo booth mlkshk heirloom gluten-free. Plaid health goth vegan, fingerstache tote bag actually aesthetic.</p>
+        </div>
+      <% end %>
   </div>
-
+<% end %>
 
 </div>
 <div class="spacer"></div>
