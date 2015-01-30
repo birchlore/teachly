@@ -1,16 +1,19 @@
 class Expert < ActiveRecord::Base
+	has_many :reviews
+
+	validates :first_name, :last_name, presence: true
 	# Allows skills to be stored as an array
 	serialize :skills
 	
 	mount_uploader :avatar, AvatarUploader
 
-	has_many :reviews
 
 	def name
 		return nil unless has_full_name?
 		first_name.capitalize << " " << last_name[0].capitalize << "."
 	end
 	
+	#can be replaced by validation?
 	def has_full_name?
 		!first_name.nil? && !last_name.nil?
 	end

@@ -14,10 +14,9 @@ gem 'pg'
 gem 'carrierwave'
 gem 'faker'
 
-gem 'rspec'
-
 group :development, :test do
   gem 'pry'
+  gem 'rspec'
   gem 'shotgun'
   gem 'sqlite3'
 end
