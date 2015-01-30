@@ -13,6 +13,7 @@ gem 'tux'
 gem 'pg'
 gem 'carrierwave'
 gem 'faker'
+gem 'statistics2'
 
 group :development, :test do
   gem 'pry'

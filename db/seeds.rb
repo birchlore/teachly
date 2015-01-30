@@ -1,4 +1,4 @@
-require '../config/environment'
+require_relative '../config/environment.rb'
 
 Expert.delete_all
 
@@ -65,7 +65,3 @@ end
 500.times do
   Search.create(terms: search_term)
 end
-
-
-
-
