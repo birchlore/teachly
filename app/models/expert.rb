@@ -10,7 +10,6 @@ class Expert < ActiveRecord::Base
 
 
 	def name
-		return nil unless has_full_name?
 		first_name.capitalize << " " << last_name[0].capitalize << "."
 	end
 	
