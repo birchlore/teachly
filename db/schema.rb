@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129223651) do
+ActiveRecord::Schema.define(version: 20150129233138) do
 
   create_table "experts", force: true do |t|
     t.string   "first_name"
@@ -32,7 +32,10 @@ ActiveRecord::Schema.define(version: 20150129223651) do
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "expert_id"
   end
+
+  add_index "reviews", ["expert_id"], name: "index_reviews_on_expert_id"
 
   create_table "searches", force: true do |t|
     t.string   "terms"
