@@ -14,4 +14,10 @@ class Expert < ActiveRecord::Base
 	def has_full_name?
 		!first_name.nil? && !last_name.nil?
 	end
+
+	def update_rating
+		return nil if reviews.length < 1
+		reviews.inject(0) { |sum, review| sum + review.rating}.to_f / reviews.length 
+	end
+
 end
