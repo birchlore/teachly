@@ -1,9 +1,8 @@
-require 'statistics2'
 require 'date'
 
 module Stats
 
-	class Ranking
+	class PlebianScore
 
 		class << self
 
@@ -20,8 +19,10 @@ module Stats
 				(Date.today - user_date) < 7 ? 1 : 0 			
 			end
 
-			def plebian_algorithm(positives, n, user_date)
-				wilson_score_interval(positives, n)*70 + new_user(user_date)*20 + Random::rand(1.0)*10 	
+			def run(rating, reviews, user_date)
+				review_count = reviews.count
+				pos_reviews = rating.to_f * review_count
+				wilson_score_interval(pos_reviews, review_count)*70 + new_user(user_date.to_date)*20 + Random::rand(1.0)*10 	
 			end
 
 		end

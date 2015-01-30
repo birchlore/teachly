@@ -6,6 +6,7 @@ class Expert < ActiveRecord::Base
 	serialize :skills
 	
 	mount_uploader :avatar, AvatarUploader
+	after_create :update_rank
 
 
 	def name
@@ -22,6 +23,11 @@ class Expert < ActiveRecord::Base
 		# Why does this work without self but without it doesn't
 		return self.rating = nil if reviews.length < 1
 		self.rating = reviews.inject(0) { |sum, review| sum + review.rating }.to_f / reviews.length 
+		save
+	end
+
+	def update_rank
+		self.plebian_score =	Stats::PlebianScore.run(rating, reviews, created_at)	
 		save
 	end
 

@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
+require 'statistics2'
 
 require 'active_support/all'
 require 'carrierwave'

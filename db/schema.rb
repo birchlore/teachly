@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129233138) do
+ActiveRecord::Schema.define(version: 20150130214147) do
 
   create_table "experts", force: true do |t|
     t.string   "first_name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150129233138) do
     t.text     "bio"
     t.string   "email"
     t.string   "password"
+    t.float    "plebian_score"
   end
 
   create_table "reviews", force: true do |t|
