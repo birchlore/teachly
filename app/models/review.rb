@@ -1,6 +1,13 @@
 class Review < ActiveRecord::Base
-	belongs_to :expert
+	validates :rating, inclusion: { in: [0,1] }
   validates :name,:content, presence: true
-  validates :rating, inclusion: { in: [0,1] }
-  #need a callback for notifcation to expert?
+	
+	belongs_to :expert
+	
+	after_create :update_experts_rating
+
+	private
+		def update_experts_rating
+			expert.update_rating
+		end
 end
