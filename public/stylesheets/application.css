@@ -162,6 +162,10 @@ input[placeholder]{
   margin: 19px 10px 0px 0px;
 }
 
+.no-rating {
+  font-size: 12px;
+}
+
 
 /* Dashboard */
 
