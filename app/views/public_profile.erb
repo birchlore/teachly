@@ -28,8 +28,8 @@
   <div class="row">
     <div class="col-xs-12">
       <ol class="breadcrumb">
-        <li><a href="#">"Quickbooks experts in Vancouver"</a></li>
-        <li><a href="#">Jackson C</a></li>
+        <li><a href="">"Quickbooks experts in Vancouver"</a></li>
+        <li><%= @expert.name %></li>
       </ol>
     </div>
   </div>
@@ -40,31 +40,32 @@
       <img src="http://placehold.it/400x400" class="img-responsive">
     </div>
     <div class="col-sm-8">
-      <h1>Jackson C.</h1>
+      <h1><%= @expert.name %></h1>
 
       <div class="thumbnail badge">
-        <span>94%</span>
+        <span>
+        <% if @expert.rating %>
+          <%= @expert.rating %>
+        <% else %>
+          <span class="no-rating">no reviews</span>
+        <% end %>
+          </span>
       </div>
 
       <div class="thumbnail badge">
-      <span>$12/hr</span>
+      <span>$<%= @expert.hourly_rate.to_i %>/hr</span>
       </div>
 
-      <div class="alert alert-success tags" role="alert">
-      quickbooks
-      </div>
-      <div class="alert alert-success tags" role="alert">
-      xero
-      </div>
-      <div class="alert alert-success tags" role="alert">
-      excel
-      </div>
+      <% @expert.skills.each do |skill| %>
+        <div class="alert alert-success tags" role="alert">
+        <%= skill %>
+        </div>
+      <% end %>
 
     </div>
     <div class="clearfix visible-xs"></div>
     <div class="col-sm-8">
-      <p>Banksy Pitchfork cold-pressed Austin, authentic viral skateboard umami taxidermy tousled cardigan Truffaut cronut Tumblr aesthetic. 8-bit kale chips drinking vinegar skateboard salvia slow-carb. Seitan cred Schlitz bicycle rights kale chips whatever.</p>
-      <p> meggings cray pour-over slow-carb beard Godard kitsch Vice. Intelligentsia salvia tattooed lomo drinking vinegar before they sold out squid Vice. Retro Williamsburg gluten-free, chambray keffiyeh organic messenger bag wolf lumbersexual sustainable you probably haven't heard of them squid. Mustache +1 chillwave, chia paleo pickled photo booth mlkshk heirloom gluten-free. Plaid health goth vegan, fingerstache tote bag actually aesthetic.</p>
+      <%= @expert.bio %>
     </div>
   </div>
 
