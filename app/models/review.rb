@@ -10,6 +10,7 @@ class Review < ActiveRecord::Base
 
 	def update_experts_rating
 		expert.update_rating
+		expert.update_rank
   end
 
 end
