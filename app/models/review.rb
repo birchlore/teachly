@@ -1,5 +1,6 @@
 class Review < ActiveRecord::Base
 	validates :rating, inclusion: { in: [0,1] }
+  validates :name,:content, presence: true
 	
 	belongs_to :expert
 	
