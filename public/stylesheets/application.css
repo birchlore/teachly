@@ -109,6 +109,8 @@ input[placeholder]{
   -o-transition: all 1s ease;
   -ms-transition: all 1s ease;
   transition: all 1s ease;
+  max-width: 250px;
+  margin: 0px auto 15px;
 }
 
 .results .thumbnail:hover {
@@ -127,6 +129,10 @@ input[placeholder]{
   color:#666666;
 }
 
+.badge span {
+  line-height: 40px;
+}
+
 .review img {
   height: 60px;
 }
@@ -142,8 +148,8 @@ input[placeholder]{
 
 .tags {
   float:left;
-  height:30px;
-  margin-right: 10px;
+  padding: 4px 20px;
+  margin: 19px 10px 0px 0px;
 }
 
 
@@ -177,5 +183,3 @@ input[placeholder]{
 .dashboard .alert {
   margin-top:55px;
 }
-
-
