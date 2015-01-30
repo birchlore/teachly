@@ -6,15 +6,23 @@ describe Expert do
     @expert = Expert.new(first_name: "Matt", last_name: "Gradidge", hourly_rate: 12.00, rating: 0.0, skills:  "LHL TA")
   end 
 
+  describe "association" do
+    it "expert can retrive all its reviews " do
+      expect{@expert.reviews}.not_to raise_error
+    end 
+  end
+
   describe "#password"
-    it "password must be 6 characters long" do
+    it "password must be at least 6 characters long" do
       @expert.password = 1234
-      expect(@expert.password).to raise_error "Password must be at least 6 charaters long"
+      @expert.save
+      expect(@expert.errors[:password]).to eq (["is too short (minimum is 6 characters)"])
     end
 
-    it "password entered must match the one stored with the expert" do
-      @expert.password = 457896
-      expect(@expert.password).to be_false
+    it "password must be no more than 10 characters" do
+      @expert.password = 55555554848894457896
+      @expert.save
+      expect(@expert.errors[:password]).to eq (["is too long (maximum is 10 characters)"])
   	end
   end
   
@@ -48,5 +56,4 @@ describe Expert do
     it  "returns first_name and first letter of last_name" do
       expect(@expert.name).to eq("Matt G.")
     end
-  end    
-end
+  end
