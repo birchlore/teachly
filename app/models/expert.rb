@@ -16,8 +16,10 @@ class Expert < ActiveRecord::Base
 	end
 
 	def update_rating
-		return nil if reviews.length < 1
-		reviews.inject(0) { |sum, review| sum + review.rating}.to_f / reviews.length 
+		# Why does this work without self but without it doesn't
+		return self.rating = nil if reviews.length < 1
+		self.rating = reviews.inject(0) { |sum, review| sum + review.rating }.to_f / reviews.length 
+		save
 	end
 
 end
