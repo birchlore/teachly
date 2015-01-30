@@ -8,6 +8,12 @@ h3 {
   font-family:Helvetica;
 }
 
+.navbar-brand img {
+  height:30px;
+  margin-top:0px;
+  padding:0px;
+}
+
 /* Index Page */
 
 .hero {
@@ -48,6 +54,10 @@ h3 {
   text-align:left;
   margin-top:20px;
   float: left;
+}
+
+.logo img {
+  height:40px;
 }
 
 input[placeholder]{
