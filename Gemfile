@@ -12,11 +12,12 @@ gem 'puma'
 gem 'tux'
 gem 'pg'
 gem 'carrierwave'
-
-gem 'rspec'
+gem 'faker'
 
 group :development, :test do
   gem 'pry'
+  gem 'rspec'
   gem 'shotgun'
   gem 'sqlite3'
 end
+

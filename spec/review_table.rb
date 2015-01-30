@@ -37,4 +37,13 @@ describe Review  do
       expect(@review.errors[:rating]).to eq(["is not included in the list"])
     end
   end
+
+  describe "#update_experts_rating" do
+    it "updates experts rating" do
+      @expert = Expert.new(first_name: "Matt", last_name: "Gradidge", hourly_rate: 12.00, rating: 0.0, skills:  "LHL TA")
+      @review.expert = @expert
+      expect(@review).to receive(:update_experts_rating) 
+      @review.run_callbacks(:create)
+    end
+  end
 end

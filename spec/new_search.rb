@@ -1,20 +1,24 @@
-require 'spec_helper'
+require './spec_helper'
 
-describe Review do 
+describe Search do 
 
   before :each do
-    @search = Search.new "Quickbooks"
+    @search = Search.new(terms: "Quickbooks")
   end
 
-  describe "#new" do
-    it "takes in a parameter and returns a Search object" do
-      @search should_be_an_instance of Search
-    end
+  describe "#terms" do
     it "must have at least one parameter" do
-      @search.term = nil
-      expect(@search.term).to raise_error
-    end 
-    
+      @search.terms = nil
+      expect{@search.save!}.to raise_error
+    end
+  end
+
+  describe "#error_msg" do
+    it "returns the custom error msg" do
+      @search.terms = nil
+      @search.save
+      expect(@search.errors[:terms]).to eq (["Please enter a search term"])
+    end    
   end
   
 end
