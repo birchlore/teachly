@@ -11,7 +11,7 @@ gem 'sinatra-activerecord'
 gem 'puma'
 gem 'tux'
 gem 'pg'
-gem 'paperclip', '>=3'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'pry'
