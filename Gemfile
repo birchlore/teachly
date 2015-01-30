@@ -12,6 +12,7 @@ gem 'puma'
 gem 'tux'
 gem 'pg'
 gem 'carrierwave'
+gem 'faker'
 
 gem 'rspec'
 
@@ -20,3 +21,4 @@ group :development, :test do
   gem 'shotgun'
   gem 'sqlite3'
 end
+

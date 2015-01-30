@@ -26,7 +26,7 @@ configure :production, :development do
 	else
 		set :database, {
 					adapter: 'sqlite3',
-					database: 'db/development_db.sqlite3'
+					database: APP_ROOT.join('db/development_db.sqlite3')
 
 			}
 	end
