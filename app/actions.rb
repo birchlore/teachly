@@ -22,6 +22,8 @@ post '/search' do
 end
 
 get '/dashboard' do
+	@rankings = Ranking.order('ratio DESC').limit(5)
+	binding.pry
   erb :dashboard
 end
 
