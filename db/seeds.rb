@@ -1,6 +1,7 @@
 require_relative '../config/environment.rb'
 
 Expert.delete_all
+Search.delete_all
 
 skill1 = ["quickbooks", "xero", "excel"]
 skill2 = ["quickbooks", "google analytics", "hootsuite", "excel"]
@@ -29,7 +30,7 @@ end
 
 100.times do
   expert = Expert.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, hourly_rate: rand(20..40).floor, skills: skillsets.sample, bio: Faker::Lorem.paragraph(sentence_count=8), email: Faker::Internet.email, password: Faker::Internet.password)
-  5.times do
+  10.times do
     expert.reviews.create(name: Faker::Name.name, content: Faker::Lorem.paragraph, rating: give_rating)
   end
 end
@@ -63,11 +64,8 @@ def search_term
 end
 
 
-terms = []
-
-500.times do
-  term = Search.create(terms: search_term)
-  terms << term
+100.times do
+  Search.create(terms: [search_term])
 end
 
 
