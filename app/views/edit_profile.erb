@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/dashboard">Dashboard</li>
+        <li><a href="/dashboard">Dashboard <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Inbox</a></li>
         <li><a href="#">Calendar</a></li>
       </ul>
@@ -23,7 +23,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li class="active"><a href="/dashboard/edit">Edit Profile</a></li>
+            <li><a href="/dashboard/edit">Edit Profile</a></li>
             <li><a href="#">Logout</a></li>
           </ul>
         </li>
@@ -32,84 +32,33 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-
-<form class="form-horizontal">
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Hourly Rate</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+<div class="container">
+  <div class="row">
+    
+    <div class="col-sm-4 profile text-center">
+      <div class="form-group">
+        <label for="photo">Profile Photo</label>
+        <input type="file">
+        <button type="submit" class="btn btn-short btn-primary">Save Profile</button>
+       </div>
     </div>
+
+    <div class="bio col-sm-6">
+
+    <div class="form-group col-m-12">
+      <label for="exampleInputEmail1">Short Bio:</label>
+      <textarea class="form-control" rows="6"></textarea>
+    </div>
+
+    <div class="form-group col-m-12">
+      <label for="expertise">Software Expertise:</label>
+      <input type="text" class="form-control" data-role="tagsinput">
+    </div>
+
+    <div class="form-group col-m-4">
+      <label for="rate">Hourly Rate:</label>
+      <input type="rate" class="form-control">
+    </div>
+
   </div>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Software Expertise</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Remember me
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Sign in</button>
-    </div>
-  </div>
-</form>
-
-
-
-
-
-
-
-
- <div class="row">
-    <div class="col-sm-4">
-      <img src="http://placehold.it/400x400" class="img-responsive">
-    </div>
-    <div class="col-sm-8">
-      <h1><%= @expert.name %></h1>
-
-      <div class="thumbnail badge">
-      <span>$<%= @expert.hourly_rate.to_i %>/hr</span>
-      </div>
-
-      <% @expert.skills.each do |skill| %>
-        <div class="alert alert-success tags" role="alert">
-        <%= skill %>
-        </div>
-      <% end %>
-
-    </div>
-    <div class="clearfix visible-xs"></div>
-    <div class="col-sm-8">
-      <%= @expert.bio %>
-    </div>
-  </div>
-
-
-    <div class="row col-sm-12">
-    <h1>Reviews</h1>
-      <% @expert.reviews.each do |review| %>
-        <div class="review">
-          <h3><%= review.name %>
-          <% if review.rating == 1 %>
-            <img src="/assets/icons/happy.png">
-          <% else %>
-            <img src="/assets/icons/sad.png">
-          <% end %>
-          </h3>
-          
-           <p> <%= review.content %></p>
-        </div>
-      <% end %>
-  </div>
-
 </div>
-<div class="spacer"></div>

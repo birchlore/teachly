@@ -197,3 +197,17 @@ input[placeholder]{
 .dashboard .alert {
   margin-top:55px;
 }
+
+
+.profile {
+  float:left;
+  background: url("http://placehold.it/400x400") no-repeat center;
+  background-size:100% auto;
+  height:400px;
+}
+
+.btn-short {
+    height:25px;
+    font-size:12px;
+    margin-top:8px;
+    }
