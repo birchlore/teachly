@@ -62,6 +62,12 @@ def search_term
   end
 end
 
+
+terms = []
+
 500.times do
-  Search.create(terms: search_term)
+  term = Search.create(terms: search_term)
+  terms << term
 end
+
+
