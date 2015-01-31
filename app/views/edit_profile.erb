@@ -23,8 +23,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Account Details</a></li>
             <li><a href="/dashboard/edit">Edit Profile</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -32,33 +33,85 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="container">
-  <div class="row">
-    
-    <div class="col-sm-4 profile text-center">
-      <div class="form-group">
-        <label for="photo">Profile Photo</label>
-        <input type="file">
-        <button type="submit" class="btn btn-short btn-primary">Save Profile</button>
+
+<form method="post" action="/dashboard/edit">
+  <div class="container dashboard"> 
+    <div class="row">
+      <div class="col-sm-6">
+      <h3>Profile Photo</h3>
+        <% if @expert %>
+          <img src="<%= @expert.avatar %>" class="img-responsive">
+        <% else %>
+          <img src="http://placehold.it/400x400" class="img-responsive">
+        <% end %>
+          <input type="file" name="avatar">
+      </div>
+
+      <div class="col-sm-6">
+      <% if @expert %>
+        <div class="form-group col-sm-12">
+          <%= @expert.first_name + " " + @expert.last_name %> <a href="#" class="edit">edit</a>
+        </div>
+      <% else %>
+        <div class="form-group col-sm-12">
+          <input name="first_name" type="text" class="form-control" data-role="tagsinput" placeholder="first name">
+        </div>
+
+        <div class="form-group col-sm-12">
+          <input name="last_name" type="text" class="form-control" data-role="tagsinput" placeholder="last name">
+        </div>
+      <% end %>
+
+        <div class="form-group col-sm-12">
+          <% if @expert %>
+            <h5>Password <a href="#" class="edit">edit</a></h5>
+            <% @expert.password.length.times do %>
+              *
+             <% end %>
+          <% else %>
+            <input name="password" type="password" class="form-control" data-role="tagsinput" placeholder="password">
+          <% end %>
+         </div>
+
+      <div class="form-group col-sm-12">
+      <% if @expert %>
+        <h5>Software Expertise <a href="#" class="edit">edit</a></h5>
+        <%= @expert.skills %>
+      <% else %>
+        <label for="expertise">Software Expertise:</label>
+        <input name="skills" type="text" class="form-control" data-role="tagsinput">
+      <% end %>
        </div>
+  
+        <div class="form-group col-sm-12">
+          <% if @expert %>
+            <h5>Short Bio <a href="#" class="edit">edit</a></h5>
+            <%= @expert.bio %>
+          <% else %>
+            <label for="exampleInputEmail1">Short Bio:</label>
+            <textarea name="bio" class="form-control" rows="6"></textarea>
+          <% end %>
+        </div>
+
+    
+        <div class="form-group col-sm-4">
+          <% if @expert %>
+            <h5>Hourly Rate <a href="#" class="edit">edit</a></h5>
+            <%= @expert.hourly_rate.to_i %>
+          <% else %>
+            <label for="rate">Hourly Rate:</label>
+            <input name="hourly_rate" type="rate" class="form-control">
+          <% end %>
+        </div>
+
+      </div>
     </div>
+    <div class="spacer"></div>
 
-    <div class="bio col-sm-6">
-
-    <div class="form-group col-m-12">
-      <label for="exampleInputEmail1">Short Bio:</label>
-      <textarea class="form-control" rows="6"></textarea>
+    <div class="clearfix text-center">
+      <button type="submit" class="btn btn-primary">Save Profile</button>
     </div>
-
-    <div class="form-group col-m-12">
-      <label for="expertise">Software Expertise:</label>
-      <input type="text" class="form-control" data-role="tagsinput">
-    </div>
-
-    <div class="form-group col-m-4">
-      <label for="rate">Hourly Rate:</label>
-      <input type="rate" class="form-control">
-    </div>
-
   </div>
 </div>
+
+
