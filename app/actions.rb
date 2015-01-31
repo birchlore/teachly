@@ -10,7 +10,6 @@ get '/search/experts' do
 		@experts << expert if (expert.skills & terms).any?
 	end
 	@experts.sort!{ |e1,e2| e2.plebian_score <=> e1.plebian_score }
-	binding.pry
 	erb :search_results
 end
 
