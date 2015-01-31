@@ -72,7 +72,7 @@
 
     <div class="row col-sm-12">
     <h1>Reviews</h1>
-      <% @expert.reviews.each do |review| %>
+      <% @reviews.last(5).each do |review| %>
         <div class="review">
           <h3><%= review.name %>
           <% if review.rating == 1 %>
