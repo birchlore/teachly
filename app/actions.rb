@@ -30,3 +30,7 @@ get '/expert/:id' do
   erb :public_profile
 end
 
+get '/dashboard/edit' do
+  erb :edit_profile
+end
+
