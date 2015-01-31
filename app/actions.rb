@@ -3,9 +3,22 @@ get '/' do
   erb :index
 end
 
+get '/search/experts' do
+	@experts = []
+	@terms = Search.find(session[:search_id]).terms
+	Expert.find_each do |expert|
+		@experts << expert if (expert.skills.map(&:downcase) & @terms.map(&:downcase)).any?
+	end
+	@experts.sort!{ |e1,e2| e2.plebian_score <=> e1.plebian_score }
+	erb :search_results
+end
+
 post '/search' do
-@expert = Expert.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, hourly_rate: rand(20..40).floor, skills: ["quickbooks", "photoshop", "google analytics", "excel"], bio: Faker::Lorem.paragraph(sentence_count=8), email: Faker::Internet.email, password: Faker::Internet.password)
-  erb :search_results
+	search_terms = params[:search].split(' ')
+	search = Search.create(terms: search_terms)
+	session[:search_id] = search.id 
+	
+	redirect '/search/experts'
 end
 
 get '/dashboard' do

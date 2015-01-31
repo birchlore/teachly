@@ -120,7 +120,7 @@ input[placeholder]{
   -ms-transition: all 1s ease;
   transition: all 1s ease;
   max-width: 250px;
-  margin: 0px auto 15px;
+  margin: 0px auto 45px;
 }
 
 .results .thumbnail:hover {

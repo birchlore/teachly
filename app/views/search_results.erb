@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,41 +27,31 @@
 
 
 
+
 <div class="container results text-center">
 
-<h2>Quickbooks Experts in Vancouver</h2>
+<h2>Local <%= @terms.first.capitalize %> Experts</h2>
 <div class="spacer"></div>
 
-<div class="row">
 
 
 <!-- THIS IS THE LOOP -->
-    
+<% if @experts.length > 0 %>
+<% @experts.each do |expert| %>
+ 
      <div class="col-sm-4 col-md-3">
-     <a href="/expert/1" >
-      <div>
+     <a href="/expert/<%= expert.id %>" >
+      <div class="thumbnail">
              <img src="http://placehold.it/200x150" class="img-responsive">
-        <p><span class="name"><%= @expert.name %></span></p> 
-        <p><span class="rating">89%</span> | <span class="wage">$12/hr</span></p>
+        <p><span class="name"><%= expert.name %></span></p> 
+        <p><span class="rating"><%= (expert.rating * 100).to_i %>%</span> | <span class="wage"><%= expert.hourly_rate %></span></p>
       </div>
     </a>
     </div>
 
 
 
-  <!-- <div class="col-sm-4 col-md-3">
-     <a href="/expert/1" >
-      <div class="thumbnail">
-             <img src="http://placehold.it/200x150" class="img-responsive">
-        <p><span class="name">Jackson C.</span></p> 
-        <p><span class="rating">89%</span> | <span class="wage">$12/hr</span></p>
-      </div>
-    </a>
-    </div> -->
-
-
-
-  </div>
-<div class="spacer"></div>
-
-</div>
+<% end %>
+<% else %>
+<p><em>Oops,looks likes there is a problem with your search.</em></p>
+<% end %>
