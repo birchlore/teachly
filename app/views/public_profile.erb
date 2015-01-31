@@ -45,7 +45,7 @@
       <div class="thumbnail badge">
         <span>
         <% if @expert.rating %>
-          <%= @expert.rating %>
+          <%= (@expert.rating * 100).to_i %>%
         <% else %>
           <span class="no-rating">no reviews</span>
         <% end %>
@@ -74,16 +74,18 @@
     <h1>Reviews</h1>
       <% @expert.reviews.each do |review| %>
         <div class="review">
-          <h3>
+          <h3><%= review.name %>
           <% if review.rating == 1 %>
-            <img src="/assets/icons/happy.png"></h3>
+            <img src="/assets/icons/happy.png">
           <% else %>
+            <img src="/assets/icons/sad.png">
+          <% end %>
+          </h3>
           
-           <p> meggings cray pour-over slow-carb beard Godard kitsch Vice. Intelligentsia salvia tattooed lomo drinking vinegar before they sold out squid Vice. Retro Williamsburg gluten-free, chambray keffiyeh organic messenger bag wolf lumbersexual sustainable you probably haven't heard of them squid. Mustache +1 chillwave, chia paleo pickled photo booth mlkshk heirloom gluten-free. Plaid health goth vegan, fingerstache tote bag actually aesthetic.</p>
+           <p> <%= review.content %></p>
         </div>
       <% end %>
   </div>
-<% end %>
 
 </div>
 <div class="spacer"></div>
