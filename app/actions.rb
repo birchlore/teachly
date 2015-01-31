@@ -5,7 +5,7 @@ end
 
 get '/search/experts' do
 	@experts = []
-	terms = Search.find(session[:search_id]).terms
+	@terms = Search.find(session[:search_id]).terms
 	Expert.find_each do |expert|
 		@experts << expert if (expert.skills.map(&:downcase) & terms.map(&:downcase)).any?
 	end
