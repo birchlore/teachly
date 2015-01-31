@@ -5,9 +5,9 @@ end
 
 get '/search/experts' do
 	@experts = []
-	terms = Search.find(session[:search_id]).terms
+	@terms = Search.find(session[:search_id]).terms
 	Expert.find_each do |expert|
-		@experts << expert if (expert.skills & terms).any?
+		@experts << expert if (expert.skills & @terms).any?
 	end
 	@experts.sort!{ |e1,e2| e2.plebian_score <=> e1.plebian_score }
 	erb :search_results
