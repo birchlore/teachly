@@ -133,11 +133,9 @@
 
   <!-- List group -->
   <ul class="list-group text-center">
-    <li class="list-group-item">Quickbooks</li>
-    <li class="list-group-item">Excel</li>
-    <li class="list-group-item">Xero</li>
-    <li class="list-group-item">Google Analytics</li>
-    <li class="list-group-item">Hootsuite</li>
+		<% @rankings.each do |search| %>
+    <li class="list-group-item"><%= search.term.capitalize %></li>
+		<% end %>
   </ul>
 
 
