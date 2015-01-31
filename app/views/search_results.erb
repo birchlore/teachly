@@ -35,15 +35,15 @@
 
 
 <!-- THIS IS THE LOOP -->
-<% if @expert.count > 0 %>
-<% @expert.each do |expert| %>
+<% if @experts.length > 0 %>
+<% @experts.each do |expert| %>
  
      <div class="col-sm-4 col-md-3">
-     <a href="/expert/1" >
+     <a href="/expert/<%= expert.id %>" >
       <div>
              <img src="http://placehold.it/200x150" class="img-responsive">
-        <p><span class="name"><%= @expert.name %></span></p> 
-        <p><span class="rating"><%= @expert.rating %></span> | <span class="wage"><%= @expert.hourly_rate %></span></p>
+        <p><span class="name"><%= expert.name %></span></p> 
+        <p><span class="rating"><%= expert.rating %></span> | <span class="wage"><%= expert.hourly_rate %></span></p>
       </div>
     </a>
     </div>
