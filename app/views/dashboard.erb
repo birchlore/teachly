@@ -36,11 +36,13 @@
 
 
 <div class="container dashboard">
-  <!-- <div class="row">
+  <div class="row">
     <div class="col-sm-12">
-      <h1>Hello,  @expert.first_name </h1>
+    <% if @user %>
+      <h1>Hello, <%= @user.first_name %></h1>
+    <% end %>
     </div>
-  </div> -->
+  </div>
   <div class="row">
     <div class="col-sm-3 earnings text-center">
       <h3>January Earnings</h3>

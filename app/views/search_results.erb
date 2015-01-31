@@ -44,7 +44,13 @@
       <div class="thumbnail">
              <img src="http://placehold.it/200x150" class="img-responsive">
         <p><span class="name"><%= expert.name %></span></p> 
-        <p><span class="rating"><%= (expert.rating * 100).to_i %>%</span> | <span class="wage">$<%= expert.hourly_rate.to_i %>/hr</span></p>
+        <p><span class="rating">
+        <% if expert.rating %>
+          <%= (expert.rating * 100).to_i %>%</span> | <span class="wage">$<%= expert.hourly_rate.to_i %>/hr
+        <% else %>
+        --
+        <% end %>
+          </span></p>
       </div>
     </a>
     </div>
