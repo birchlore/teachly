@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130214147) do
+ActiveRecord::Schema.define(version: 20150131005147) do
 
   create_table "experts", force: true do |t|
     t.string   "first_name"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150130214147) do
   add_index "reviews", ["expert_id"], name: "index_reviews_on_expert_id"
 
   create_table "searches", force: true do |t|
-    t.string   "terms"
+    t.text     "terms",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
