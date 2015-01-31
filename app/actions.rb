@@ -32,6 +32,22 @@ get '/expert/:id' do
 end
 
 get '/dashboard/edit' do
+  unless session[:expert_id] == nil
+    @expert = Expert.find(session[:expert_id])
+  end
   erb :edit_profile
+end
+
+post '/dashboard/edit' do
+  expert = Expert.create(first_name: params[:first_name], last_name: params[:last_name], password: params[:password], bio: params[:bio], skills: params[:skills], hourly_rate: params[:hourly_rate], avatar: params[:avatar])
+  session[:expert_id] = expert.id
+
+  redirect '/dashboard/edit'
+end
+
+
+get '/logout' do
+  session[:expert_id] = nil
+  erb :index
 end
 
