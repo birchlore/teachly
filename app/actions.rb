@@ -22,8 +22,7 @@ post '/search' do
 end
 
 get '/dashboard' do
-  @expert = Expert.find(session[:expert_id])
-	@rankings = Ranking.order('ratio DESC').limit(5)
+  	@rankings = Ranking.order('ratio DESC').limit(5)
   erb :dashboard
 end
 
