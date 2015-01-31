@@ -15,9 +15,9 @@
         <li><a href="/dashboard">Expert Login</a></li>
       </ul>
 
-      <form class="navbar-form navbar-right" role="search">
+       <form method="post" class="navbar-form navbar-right" role="search" action="/search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search Local Experts">
+          <input type="search" name="search" class="form-control" id="search" placeholder="Find Local Experts">
         </div>
       </form>
 
@@ -53,5 +53,5 @@
 
 <% end %>
 <% else %>
-<p><em>Oops,looks likes there is a problem with your search.</em></p>
+<p><em>No search results found for <%= @terms.join(' ') %> experts </em></p>
 <% end %>
