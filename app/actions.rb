@@ -27,6 +27,7 @@ end
 
 get '/expert/:id' do
   @expert = Expert.find(params[:id])
+  @reviews = @expert.reviews
   erb :public_profile
 end
 
