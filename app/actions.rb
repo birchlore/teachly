@@ -22,6 +22,7 @@ post '/search' do
 end
 
 get '/dashboard' do
+  @expert = Expert.find(session[:expert_id])
   erb :dashboard
 end
 
@@ -39,7 +40,7 @@ get '/dashboard/edit' do
 end
 
 post '/dashboard/edit' do
-  expert = Expert.create(first_name: params[:first_name], last_name: params[:last_name], password: params[:password], bio: params[:bio], skills: params[:skills], hourly_rate: params[:hourly_rate], avatar: params[:avatar])
+  expert = Expert.create(first_name: params[:first_name], last_name: params[:last_name], password: params[:password], bio: params[:bio], skills: params[:skills].split(","), hourly_rate: params[:hourly_rate], avatar: params[:avatar])
   session[:expert_id] = expert.id
 
   redirect '/dashboard/edit'
