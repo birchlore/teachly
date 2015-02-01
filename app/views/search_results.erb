@@ -46,9 +46,15 @@
         <p><span class="name"><%= expert.name %></span></p> 
         <p><span class="rating">
         <% if expert.rating %>
-          <%= (expert.rating * 100).to_i %>%</span> | <span class="wage">$<%= expert.hourly_rate.to_i %>/hr
+          <%= (expert.rating * 100).to_i %>%
         <% else %>
-        --
+          -- 
+        <% end %>
+        </span> | <span class="wage">
+        <% if expert.hourly_rate %>
+          $<%= expert.hourly_rate.to_i %>/hr
+        <% else %>
+          --
         <% end %>
           </span></p>
       </div>
