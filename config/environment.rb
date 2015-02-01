@@ -6,6 +6,7 @@ require 'active_support/all'
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
 require 'faker'
+require 'mini_magick'
 
 # Load Sinatra Framework (with AR)
 require 'sinatra'

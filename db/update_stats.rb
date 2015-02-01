@@ -23,7 +23,6 @@ class UpdateStats
 			end
 
 
-		#TODO Not properly storing the ratio
 		search_hash.each do |key,value|
 			Ranking.create(term: key,ratio: calculate_ratio(search_hash[key],expert_hash[key])) 
 		end

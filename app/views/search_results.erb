@@ -42,7 +42,7 @@
      <div class="col-sm-4 col-md-3">
      <a href="/expert/<%= expert.id %>" >
       <div class="thumbnail">
-             <img src="http://placehold.it/200x150" class="img-responsive">
+             <img src="<%= expert.avatar.thumb.path[51..-1] %>" class="img-responsive">
         <p><span class="name"><%= expert.name %></span></p> 
         <p><span class="rating">
         <% if expert.rating %>
