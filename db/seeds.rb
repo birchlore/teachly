@@ -1,6 +1,6 @@
 require_relative '../config/environment.rb'
-
 Expert.delete_all
+Search.delete_all
 
 skill1 = ["quickbooks", "xero", "excel"]
 skill2 = ["quickbooks", "google analytics", "hootsuite", "excel"]
@@ -26,10 +26,12 @@ def give_rating
   end
 end
 
+pictures = File.open(APP_ROOT.join('db/pictures/pictures.txt'))
 
 100.times do
-  expert = Expert.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, hourly_rate: rand(20..40).floor, skills: skillsets.sample, bio: Faker::Lorem.paragraph(sentence_count=8), email: Faker::Internet.email, password: Faker::Internet.password)
-  5.times do
+	avatar_path = APP_ROOT.join('db/pictures/', pictures.readline.chomp)
+  expert = Expert.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, hourly_rate: rand(20..40).floor, skills: skillsets.sample, bio: Faker::Lorem.paragraph(sentence_count=8), email: Faker::Internet.email, password: Faker::Internet.password, avatar: File.open(avatar_path))
+  10.times do
     expert.reviews.create(name: Faker::Name.name, content: Faker::Lorem.paragraph, rating: give_rating)
   end
 end
@@ -62,6 +64,9 @@ def search_term
   end
 end
 
-500.times do
-  Search.create(terms: search_term)
+
+100.times do
+  Search.create(terms: [search_term])
 end
+
+

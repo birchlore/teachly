@@ -197,3 +197,12 @@ input[placeholder]{
 .dashboard .alert {
   margin-top:55px;
 }
+
+
+.profile {
+  float:left;
+}
+
+.edit {
+  margin-left:10px;
+}

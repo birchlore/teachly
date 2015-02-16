@@ -14,9 +14,9 @@
         <li><a href="/dashboard">Expert Login</a></li>
       </ul>
 
-      <form class="navbar-form navbar-right" role="search">
+      <form method="post" class="navbar-form navbar-right" role="search" action="/search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search Local Experts">
+          <input type="search" name="search" class="form-control" id="search" placeholder="Find Local Experts">
         </div>
       </form>
 
@@ -37,7 +37,7 @@
 
   <div class="row">
     <div class="col-sm-4">
-      <img src="http://placehold.it/400x400" class="img-responsive">
+      <img src="<%= @expert.avatar.path[/\/public.+[^"']/] %>" class="img-responsive">
     </div>
     <div class="col-sm-8">
       <h1><%= @expert.name %></h1>
@@ -72,7 +72,7 @@
 
     <div class="row col-sm-12">
     <h1>Reviews</h1>
-      <% @expert.reviews.each do |review| %>
+      <% @reviews.last(5).each do |review| %>
         <div class="review">
           <h3><%= review.name %>
           <% if review.rating == 1 %>

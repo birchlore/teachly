@@ -1,0 +1,117 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="/assets/logo5.png"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/dashboard">Dashboard <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Inbox</a></li>
+        <li><a href="#">Calendar</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Account Details</a></li>
+            <li><a href="/dashboard/edit">Edit Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<form method="post" action="/dashboard/edit">
+  <div class="container dashboard"> 
+    <div class="row">
+      <div class="col-sm-6">
+      <h3>Profile Photo</h3>
+        <% if @expert %>
+          <img src="<%= @expert.avatar %>" class="img-responsive">
+        <% else %>
+          <img src="http://placehold.it/400x400" class="img-responsive">
+        <% end %>
+          <input type="file" name="avatar">
+      </div>
+
+      <div class="col-sm-6">
+      <% if @expert %>
+        <div class="form-group col-sm-12">
+          <%= @expert.first_name + " " + @expert.last_name %> <a href="#" class="edit">edit</a>
+        </div>
+      <% else %>
+        <div class="form-group col-sm-12">
+          <input name="first_name" type="text" class="form-control" data-role="tagsinput" placeholder="first name">
+        </div>
+
+        <div class="form-group col-sm-12">
+          <input name="last_name" type="text" class="form-control" data-role="tagsinput" placeholder="last name">
+        </div>
+      <% end %>
+
+        <div class="form-group col-sm-12">
+          <% if @expert %>
+            <h5>Password <a href="#" class="edit">edit</a></h5>
+            <% @expert.password.length.times do %>
+              *
+             <% end %>
+          <% else %>
+            <input name="password" type="password" class="form-control" data-role="tagsinput" placeholder="password">
+          <% end %>
+         </div>
+
+      <div class="form-group col-sm-12">
+      <% if @expert %>
+        <h5>Software Expertise <a href="#" class="edit">edit</a></h5>
+        <%= @expert.skills %>
+      <% else %>
+        <label for="expertise">Software Expertise:</label>
+        <input name="skills" type="text" class="form-control" data-role="tagsinput">
+      <% end %>
+       </div>
+  
+        <div class="form-group col-sm-12">
+          <% if @expert %>
+            <h5>Short Bio <a href="#" class="edit">edit</a></h5>
+            <%= @expert.bio %>
+          <% else %>
+            <label for="exampleInputEmail1">Short Bio:</label>
+            <textarea name="bio" class="form-control" rows="6"></textarea>
+          <% end %>
+        </div>
+
+    
+        <div class="form-group col-sm-4">
+          <% if @expert %>
+            <h5>Hourly Rate <a href="#" class="edit">edit</a></h5>
+            <%= @expert.hourly_rate.to_i %>
+          <% else %>
+            <label for="rate">Hourly Rate:</label>
+            <input name="hourly_rate" type="rate" class="form-control">
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+    <div class="spacer"></div>
+
+    <div class="clearfix text-center">
+      <button type="submit" class="btn btn-primary">Save Profile</button>
+    </div>
+  </div>
+</div>
+
+

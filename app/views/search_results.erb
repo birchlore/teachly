@@ -15,9 +15,9 @@
         <li><a href="/dashboard">Expert Login</a></li>
       </ul>
 
-      <form class="navbar-form navbar-right" role="search">
+       <form method="post" class="navbar-form navbar-right" role="search" action="/search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search Local Experts">
+          <input type="search" name="search" class="form-control" id="search" placeholder="Find Local Experts">
         </div>
       </form>
 
@@ -42,9 +42,21 @@
      <div class="col-sm-4 col-md-3">
      <a href="/expert/<%= expert.id %>" >
       <div class="thumbnail">
-             <img src="http://placehold.it/200x150" class="img-responsive">
+             <img src="<%= expert.avatar.thumb.path[/\/public.+[^"']/] %>" class="img-responsive">
         <p><span class="name"><%= expert.name %></span></p> 
-        <p><span class="rating"><%= (expert.rating * 100).to_i %>%</span> | <span class="wage"><%= expert.hourly_rate %></span></p>
+        <p><span class="rating">
+        <% if expert.rating %>
+          <%= (expert.rating * 100).to_i %>%
+        <% else %>
+          -- 
+        <% end %>
+        </span> | <span class="wage">
+        <% if expert.hourly_rate %>
+          $<%= expert.hourly_rate.to_i %>/hr
+        <% else %>
+          --
+        <% end %>
+          </span></p>
       </div>
     </a>
     </div>
@@ -53,5 +65,5 @@
 
 <% end %>
 <% else %>
-<p><em>Oops,looks likes there is a problem with your search.</em></p>
+<p><em>No search results found for <%= @terms.join(' ') %> experts </em></p>
 <% end %>

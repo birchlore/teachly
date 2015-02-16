@@ -14,6 +14,7 @@ gem 'pg'
 gem 'carrierwave'
 gem 'faker'
 gem 'statistics2'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'pry'

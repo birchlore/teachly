@@ -8,6 +8,7 @@ class Expert < ActiveRecord::Base
 	
 	mount_uploader :avatar, AvatarUploader
 	after_create :update_rank
+	after_create :default_profile_photo
 
 
 	def name
@@ -25,6 +26,12 @@ class Expert < ActiveRecord::Base
 	def update_rank
 		self.plebian_score =	Stats::PlebianScore.run(rating, reviews, created_at)	
 		save
+	end
+
+	def default_profile_photo
+		unless avatar
+			self.avatar = "http://placehold.it/400x400"
+		end
 	end
 
 end

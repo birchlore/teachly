@@ -23,8 +23,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Edit Profile</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="#">Account Details</a></li>
+            <li><a href="/dashboard/edit">Edit Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -35,12 +36,17 @@
 
 
 <div class="container dashboard">
-
   <div class="row">
-    
+    <div class="col-sm-12">
+    <% if @user %>
+      <h1>Hello, <%= @user.first_name %></h1>
+    <% end %>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-sm-3 earnings text-center">
-        <h3>January Earnings</h3>
-        <p>$565</p>
+      <h3>January Earnings</h3>
+      <p>$565</p>
     </div>
 
     <div class="col-sm-3 rating text-center">
@@ -81,14 +87,14 @@
       <div class="panel-heading">
         Thursday February 4th at 3pm
       </div>
-      <div class="panel-body">Jackson Cunningham - Quickbooks</div>
+      <div class="panel-body">Jackson Cunningham - Bootstrap</div>
     </div>
 
      <div class="panel panel-info">
       <div class="panel-heading">
-        Thursday February 4th at 3pm
+        Friday February 5th at 1pm
       </div>
-      <div class="panel-body">Jackson Cunningham - Quickbooks</div>
+      <div class="panel-body">Spiro Sideris - Machine Learning Algorithms</div>
     </div>
 
 
@@ -96,7 +102,7 @@
       <div class="panel-heading">
         Thursday February 4th at 3pm
       </div>
-      <div class="panel-body">Jackson Cunningham - Quickbooks</div>
+      <div class="panel-body">Nikki Asif - Rspec Tests</div>
     </div>
       
     </div>
@@ -129,11 +135,9 @@
 
   <!-- List group -->
   <ul class="list-group text-center">
-    <li class="list-group-item">Quickbooks</li>
-    <li class="list-group-item">Excel</li>
-    <li class="list-group-item">Xero</li>
-    <li class="list-group-item">Google Analytics</li>
-    <li class="list-group-item">Hootsuite</li>
+		<% @rankings.each do |search| %>
+    <li class="list-group-item"><%= search.term.capitalize %></li>
+		<% end %>
   </ul>
 
 

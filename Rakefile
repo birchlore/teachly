@@ -23,3 +23,8 @@ desc 'Retrieves the current schema version number'
 task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
 end
+
+desc 'Updates the search rankings'
+task "db:update_search" do
+	ruby "db/update_search_ranks.rb"
+end
